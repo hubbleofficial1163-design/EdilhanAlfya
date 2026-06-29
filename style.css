@@ -54,7 +54,7 @@ html, body {
 
 .names-wrapper {
     width: 100%;
-    padding-top: 8rem;
+    padding-top: 4rem;
     flex-shrink:0;
 }
 
@@ -1163,3 +1163,289 @@ textarea:focus {
 }
 
 
+
+
+/* Музыкальная кнопка */
+.music-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+}
+
+.music-btn {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+.music-btn:hover {
+    transform: scale(1.05);
+}
+
+.music-btn.playing {
+    background: rgba(212, 197, 169, 0.2);
+    border-color: #d4c5a9;
+}
+
+/* Иконки музыки - SVG */
+.music-icon {
+    width: 28px;
+    height: 28px;
+    color: #ffffff;
+    filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.3));
+    z-index: 2;
+}
+
+/* Когда музыка играет - показываем паузу, прячем play */
+.music-btn.playing .play-icon {
+    display: none;
+}
+
+.music-btn.playing .pause-icon {
+    display: block !important;
+}
+
+.orbit-text {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 78px;
+    height: 78px;
+    z-index: 1;
+    animation: spin-orbit 12s linear infinite;
+}
+
+@keyframes spin-orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.music-btn.playing .orbit-text {
+    animation-duration: 8s;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 480px) {
+    .music-btn {
+        width: 58px;
+        height: 58px;
+    }
+    .music-icon {
+        width: 22px;
+        height: 22px;
+    }
+    .orbit-text {
+        width: 66px;
+        height: 66px;
+        top: -4px;
+        left: -4px;
+    }
+}
+
+
+
+/* Объединённая секция: Детали дня + Дресс-код */
+.schedule-dresscode {
+    position: relative;
+    background: #ffffff;
+    padding: 4rem 1.5rem;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.schedule-dresscode-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 0.12;
+}
+
+.schedule-dresscode-container {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    width: 100%;
+}
+
+/* Общий стиль для заголовков */
+.section-title {
+    font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
+    font-size: clamp(4rem, 12vw, 5.5rem);
+    font-weight: 400;
+    color: #d4c5a9;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
+}
+
+/* Блок с деталями дня */
+.schedule-block {
+    margin-bottom: 1rem;
+}
+
+.timeline {
+    width: 100%;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+    gap: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-time {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    font-weight: 700;
+    color: #d4c5a9;
+    min-width: 160px;
+    text-align: right;
+    flex-shrink: 0;
+    line-height: 1.1;
+    padding-top: 0.2rem;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+.timeline-info {
+    flex: 1;
+    padding-top: 0.5rem;
+}
+
+.timeline-text {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    color: #4a3f3a;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+.timeline-sub {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 300;
+    color: #8a7a6a;
+    font-style: italic;
+    line-height: 1.5;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Разделитель */
+.section-divider {
+    width: 80px;
+    height: 2px;
+    background: #d4c5a9;
+    margin: 3rem auto;
+    opacity: 0.4;
+}
+
+/* Блок с дресс-кодом */
+.dresscode-block {
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+.dresscode-text {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.8;
+    color: #4a3f3a;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 480px) {
+    .schedule-dresscode {
+        padding: 2.5rem 1rem 3rem;
+    }
+    
+    .section-title {
+        font-size: 3.5rem;
+        margin-bottom: 1.8rem;
+    }
+    
+    .timeline-item {
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .timeline-time {
+        min-width: 100px;
+        font-size: 2.8rem;
+    }
+    
+    .timeline-text {
+        font-size: 1.8rem;
+    }
+    
+    .timeline-sub {
+        font-size: 1rem;
+    }
+    
+    .section-divider {
+        width: 60px;
+        margin: 2.5rem auto;
+    }
+    
+    .dresscode-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .timeline-item {
+        gap: 0.8rem;
+    }
+    
+    .timeline-time {
+        min-width: 80px;
+        font-size: 2.2rem;
+    }
+    
+    .timeline-text {
+        font-size: 1.5rem;
+    }
+    
+    .timeline-sub {
+        font-size: 0.9rem;
+    }
+    
+    .dresscode-text {
+        font-size: 1rem;
+    }
+}
