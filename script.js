@@ -1,8 +1,8 @@
 // script.js — логика для страницы
 document.addEventListener('DOMContentLoaded', function () {
-    // Подсветка 21 июля 2026 ← меняем дату
+    // Подсветка 21 июля 2026
     const dayElements = document.querySelectorAll('.calendar-day');
-    const targetDate = 21; // ← было 15, стало 21
+    const targetDate = 21;
     
     dayElements.forEach(day => {
         if (day.textContent.trim() === String(targetDate)) {
@@ -47,8 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Таймер обратного отсчёта
 document.addEventListener('DOMContentLoaded', function () {
-    // Дата свадьбы: 21 июля 2026 года ← меняем дату
-    const weddingDate = new Date('July 21, 2026 18:30:00').getTime(); // ← было August 15, стало July 21, время 18:30
+    const weddingDate = new Date('July 21, 2026 18:30:00').getTime();
     
     function updateTimer() {
         const now = new Date().getTime();
@@ -79,29 +78,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Музыкальная кнопка
-document.addEventListener('DOMContentLoaded', function () {
+function initMusic() {
     const musicBtn = document.getElementById('musicBtn');
+    if (!musicBtn) return;
+    
     const bgMusic = document.getElementById('bgMusic');
+    if (!bgMusic) return;
+    
     let isPlaying = false;
 
-    if (musicBtn && bgMusic) {
-        musicBtn.addEventListener('click', function () {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicBtn.classList.remove('playing');
-                isPlaying = false;
-            } else {
-                bgMusic.play().catch(function(error) {
-                    console.log('Автовоспроизведение заблокировано');
-                });
-                musicBtn.classList.add('playing');
-                isPlaying = true;
-            }
-        });
-
-        bgMusic.addEventListener('ended', function () {
+    musicBtn.addEventListener('click', function () {
+        if (isPlaying) {
+            bgMusic.pause();
             musicBtn.classList.remove('playing');
+            // Меняем иконки
+            const playIcon = musicBtn.querySelector('.play-icon');
+            const pauseIcon = musicBtn.querySelector('.pause-icon');
+            if (playIcon) playIcon.style.display = 'block';
+            if (pauseIcon) pauseIcon.style.display = 'none';
             isPlaying = false;
-        });
-    }
-});
+        } else {
+            bgMusic.play().catch(function(error) {
+                console.log('Автовоспроизведение заблокировано');
+            });
+            musicBtn.classList.add('playing');
+            // Меняем иконки
+            const playIcon = musicBtn.querySelector('.play-icon');
+            const pauseIcon = musicBtn.querySelector('.pause-icon');
+            if (playIcon) playIcon.style.display = 'none';
+            if (pauseIcon) pauseIcon.style.display = 'block';
+            isPlaying = true;
+        }
+    });
+
+    bgMusic.addEventListener('ended', function () {
+        musicBtn.classList.remove('playing');
+        const playIcon = musicBtn.querySelector('.play-icon');
+        const pauseIcon = musicBtn.querySelector('.pause-icon');
+        if (playIcon) playIcon.style.display = 'block';
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        isPlaying = false;
+    });
+}
+
+// ★★★ ВАЖНО: ВЫЗЫВАЕМ ФУНКЦИЮ ★★★
+initMusic();
