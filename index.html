@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     <title>Приглашение на свадьбу</title>
     <link rel="stylesheet" href="style.css">
-
-
 </head>
 <body>
     <!-- Hero секция -->
@@ -25,15 +23,25 @@
             </div>
             <!-- Кнопка с музыкой -->
             <!-- Кнопка с музыкой -->
-            <div class="music-wrapper">
-                <button class="music-btn" id="musicBtn">
-                    <span class="music-icon">▶</span>
-                    <svg class="orbit-text" viewBox="0 0 100 100">
-                        <path id="orbitPath" d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none" />
-                    </svg>
-                </button>
-                <audio id="bgMusic" src="1.mp3" loop></audio>
-            </div>
+<div class="music-wrapper">
+    <button class="music-btn" id="musicBtn">
+        <!-- SVG иконка PLAY (треугольник) - видна по умолчанию -->
+        <svg class="music-icon play-icon" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5,3 19,12 5,21"/>
+        </svg>
+        
+        <!-- SVG иконка PAUSE (две палочки) - скрыта по умолчанию -->
+        <svg class="music-icon pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <rect x="6" y="4" width="4" height="16"/>
+            <rect x="14" y="4" width="4" height="16"/>
+        </svg>
+        
+        <svg class="orbit-text" viewBox="0 0 100 100">
+            <path id="orbitPath" d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none" />
+        </svg>
+    </button>
+    <audio id="bgMusic" src="1.mp3" loop></audio>
+</div>
         </div>
     </section>
 
@@ -49,65 +57,69 @@
             </p>
             
             <!-- Календарь -->
-            <div class="calendar-wrapper">
-                <div class="calendar">
-                    <div class="calendar-header">
-                        <span class="calendar-month">Июль 2026</span>
-                    </div>
-                    <div class="calendar-grid">
-                        <div class="calendar-weekday">Пн</div>
-                        <div class="calendar-weekday">Вт</div>
-                        <div class="calendar-weekday">Ср</div>
-                        <div class="calendar-weekday">Чт</div>
-                        <div class="calendar-weekday">Пт</div>
-                        <div class="calendar-weekday">Сб</div>
-                        <div class="calendar-weekday">Вс</div>
-                        
-                        <!-- Пустые ячейки для начала месяца (1 августа 2026 - суббота) -->
-                        <div class="calendar-day empty"></div>
-                        <div class="calendar-day empty"></div>
-                        <div class="calendar-day empty"></div>
-                        <div class="calendar-day empty"></div>
-                        <div class="calendar-day empty"></div>
-                        <div class="calendar-day">1</div>
-                        <div class="calendar-day">2</div>
-                        <div class="calendar-day">3</div>
-                        <div class="calendar-day">4</div>
-                        <div class="calendar-day">5</div>
-                        <div class="calendar-day">6</div>
-                        <div class="calendar-day">7</div>
-                        <div class="calendar-day">8</div>
-                        <div class="calendar-day">9</div>
-                        <div class="calendar-day">10</div>
-                        <div class="calendar-day">11</div>
-                        <div class="calendar-day">12</div>
-                        <div class="calendar-day">13</div>
-                        <div class="calendar-day">14</div>
-                        <div class="calendar-day">15</div>
-                        <div class="calendar-day">16</div>
-                        <div class="calendar-day">17</div>
-                        <div class="calendar-day">18</div>
-                        <div class="calendar-day">19</div>
-                        <div class="calendar-day">20</div>
-                        <div class="calendar-day">21</div>
-                        <div class="calendar-day">22</div>
-                        <div class="calendar-day">23</div>
-                        <div class="calendar-day">24</div>
-                        <div class="calendar-day">25</div>
-                        <div class="calendar-day">26</div>
-                        <div class="calendar-day">27</div>
-                        <div class="calendar-day">28</div>
-                        <div class="calendar-day">29</div>
-                        <div class="calendar-day">30</div>
-                        <div class="calendar-day">31</div>
-                    </div>
-                    <!-- Выделенная дата -->
-                    <div class="calendar-event">
-                        <span class="event-date">21</span>
-                        <span class="event-label">Наша свадьба</span>
-                    </div>
-                </div>
+            <!-- Календарь -->
+<div class="calendar-wrapper">
+    <div class="calendar">
+        <div class="calendar-header">
+            <span class="calendar-month">Июль 2026</span>
+        </div>
+            <div class="calendar-grid">
+                <div class="calendar-weekday">Пн</div>
+                <div class="calendar-weekday">Вт</div>
+                <div class="calendar-weekday">Ср</div>
+                <div class="calendar-weekday">Чт</div>
+                <div class="calendar-weekday">Пт</div>
+                <div class="calendar-weekday">Сб</div>
+                <div class="calendar-weekday">Вс</div>
+                
+                <!-- Пустые ячейки для начала месяца (1 июля - среда) -->
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day">3</div>
+                <div class="calendar-day">4</div>
+                <div class="calendar-day">5</div>
+                
+                <div class="calendar-day">6</div>
+                <div class="calendar-day">7</div>
+                <div class="calendar-day">8</div>
+                <div class="calendar-day">9</div>
+                <div class="calendar-day">10</div>
+                <div class="calendar-day">11</div>
+                <div class="calendar-day">12</div>
+                
+                <div class="calendar-day">13</div>
+                <div class="calendar-day">14</div>
+                <div class="calendar-day">15</div>
+                <div class="calendar-day">16</div>
+                <div class="calendar-day">17</div>
+                <div class="calendar-day">18</div>
+                <div class="calendar-day">19</div>
+                
+                <div class="calendar-day">20</div>
+                <div class="calendar-day">21</div>
+                <div class="calendar-day">22</div>
+                <div class="calendar-day">23</div>
+                <div class="calendar-day">24</div>
+                <div class="calendar-day">25</div>
+                <div class="calendar-day">26</div>
+                
+                <div class="calendar-day">27</div>
+                <div class="calendar-day">28</div>
+                <div class="calendar-day">29</div>
+                <div class="calendar-day">30</div>
+                <div class="calendar-day">31</div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
             </div>
+        <!-- Выделенная дата -->
+        <div class="calendar-event">
+            <span class="event-date">21</span>
+            <span class="event-label">Наша свадьба</span>
+        </div>
+    </div>
+</div>
         </div>
     </section>
 
@@ -125,18 +137,21 @@
 
             </p>
             
-            <a href="https://yandex.ru/maps/-/CTUpRBob" class="location-btn" target="_blank">Открыть карту</a>
+            <a href="https://yandex.com/maps/-/CTa4qBzu" class="location-btn" target="_blank">Открыть карту</a>
         </div>
     </section>
 
         <!-- Секция детали дня -->
     <!-- Секция детали дня -->
-    <section class="schedule" id="schedule">
-        <!-- Фоновое изображение -->
-        <div class="schedule-bg" style="background-image: url('fon.jpg');"></div>
-        
-        <div class="schedule-content">
-            <h2 class="schedule-title">Детали дня</h2>
+    <!-- Секция Детали дня + Дресс-код -->
+<section class="schedule-dresscode" id="schedule-dresscode">
+    <!-- Фоновое изображение -->
+    <div class="schedule-dresscode-bg" style="background-image: url('fon.jpg');"></div>
+    
+    <div class="schedule-dresscode-container">
+        <!-- Блок 1: Детали дня -->
+        <div class="schedule-block">
+            <h2 class="section-title">Детали дня</h2>
             
             <div class="timeline">
                 <div class="timeline-item">
@@ -154,61 +169,19 @@
                         <div class="timeline-sub">Самый трогательный момент дня</div>
                     </div>
                 </div>
-                
-                <!-- <div class="timeline-item">
-                    <div class="timeline-time">16:00</div>
-                    <div class="timeline-info">
-                        <div class="timeline-text">Банкет</div>
-                        <div class="timeline-sub">Вкусный ужин в кругу близких</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-time">20:00</div>
-                    <div class="timeline-info">
-                        <div class="timeline-text">Торт</div>
-                        <div class="timeline-sub">Сладкий сюрприз и задувание свечей</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-time">22:00</div>
-                    <div class="timeline-info">
-                        <div class="timeline-text">Окончание праздника</div>
-                        <div class="timeline-sub">Благодарим всех за этот чудесный день!</div>
-                    </div>
-                </div> -->
             </div>
         </div>
-    </section>
-
-
-    <!-- Секция дресс-код -->
-<!-- Секция дресс-код -->
-<!-- Секция дресс-код -->
-<section class="dresscode" id="dresscode">
-    <!-- Фоновое изображение -->
-    <div class="dresscode-bg" style="background-image: url('fon.jpg');"></div>
-    
-    <div class="dresscode-container">
-        <!-- Заголовок сверху -->
-        <h2 class="dresscode-title">Дресс-код</h2>
         
-        <!-- Контент: слева текст, справа квадраты -->
-        <div class="dresscode-content">
-            <div class="dresscode-left">
-                <p class="dresscode-text">
-                    Мы будем рады видеть Вас в нарядах любой цветовой гаммы, у нас нет строго определленого дресс-кода. Главное - Ваше присутствие и хорошее настроение
-                </p>
-            </div>
+        <!-- Разделитель -->
+        <div class="section-divider"></div>
+        
+        <!-- Блок 2: Дресс-код -->
+        <div class="dresscode-block">
+            <h2 class="section-title">Дресс-код</h2>
             
-            <!-- <div class="dresscode-right">
-                <div class="color-square" style="background: #8a7a6a;"></div>
-                <div class="color-square" style="background: #a89480;"></div>
-                <div class="color-square" style="background: #c4b59a;"></div>
-                <div class="color-square" style="background: #d9ceba;"></div>
-                <div class="color-square" style="background: #ede5d5;"></div>
-            </div> -->
+            <p class="dresscode-text">
+                Мы будем рады видеть Вас в нарядах любой цветовой гаммы, у нас нет строго определённого дресс-кода. Главное - Ваше присутствие и хорошее настроение
+            </p>
         </div>
     </div>
 </section>
